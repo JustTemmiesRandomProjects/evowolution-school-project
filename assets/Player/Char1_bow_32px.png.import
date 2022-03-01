@@ -1,0 +1,16 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/Char1_bow_32px.png-bda8ac7499778283214e2c20f4d2ec9d.res"
+
+[deps]
+
+source_file="res://assets/Player/Char1_bow_32px.png"
+dest_files=[ "res://.import/Char1_bow_32px.png-bda8ac7499778283214e2c20f4d2ec9d.res" ]
+
+[params]
+
+atlas_file=""
+import_mode=0
+crop_to_region=false

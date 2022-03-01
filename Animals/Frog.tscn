@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Animals/AI.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/Char1_4_sides_16px.png" type="Texture" id=2]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=3]
 [ext_resource path="res://PlayerAnimationthing.tres" type="AnimationNodeStateMachine" id=4]

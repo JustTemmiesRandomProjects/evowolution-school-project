@@ -1,0 +1,16 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/Char1_idle_16px.png-b71cabf60ada222b00c2db0ab764977a.res"
+
+[deps]
+
+source_file="res://assets/Player/Char1_idle_16px.png"
+dest_files=[ "res://.import/Char1_idle_16px.png-b71cabf60ada222b00c2db0ab764977a.res" ]
+
+[params]
+
+atlas_file=""
+import_mode=0
+crop_to_region=false
