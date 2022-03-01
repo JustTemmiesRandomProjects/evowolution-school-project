@@ -11,9 +11,15 @@ config_version=4
 [application]
 
 config/name="evowolution"
+run/main_scene="res://Game.tscn"
 config/icon="res://assets/beaver.png"
 config/macos_native_icon="res://assets/beaver.png"
 config/windows_native_icon="res://assets/beaver.png"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 

@@ -13,7 +13,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
-	randomize()# randomizes the seed for the game, godot uses a set seed for the game by default
+	#randomize()# randomizes the seed for the game, godot uses a set seed for the game by default
 	animationTree.active = true
 
 func _physics_process(delta):

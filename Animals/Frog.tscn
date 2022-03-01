@@ -1,149 +1,25 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Animals/AI.gd" type="Script" id=1]
-[ext_resource path="res://assets/Player/Char1_4_sides_16px.png" type="Texture" id=2]
+[ext_resource path="res://assets/froggie.png" type="Texture" id=2]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=3]
-[ext_resource path="res://PlayerAnimationthing.tres" type="AnimationNodeStateMachine" id=4]
+[ext_resource path="res://wanderController.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SoftCollision.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 5.5 )
+extents = Vector2( 9.5, 6.5 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "IdleDown"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 7.0
+height = 6.0
 
-[sub_resource type="Animation" id=8]
-resource_name = "IdleLeft"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 3 ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "IdleRight"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-
-[sub_resource type="Animation" id=10]
-resource_name = "IdleUp"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 2 ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "RunDown"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "RunLeft"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 3 ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "RunRight"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "RunUp"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 2 ]
-}
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
-
-[node name="Character" type="KinematicBody2D"]
-scale = Vector2( 4, 4 )
+[node name="Frog" type="KinematicBody2D"]
+position = Vector2( -1, 0 )
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 0.5 )
+position = Vector2( -0.5, 0.5 )
 shape = SubResource( 1 )
 
 [node name="Shadow" type="Sprite" parent="."]
@@ -153,22 +29,14 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-hframes = 4
+hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/IdleDown = SubResource( 7 )
-anims/IdleLeft = SubResource( 8 )
-anims/IdleRight = SubResource( 9 )
-anims/IdleUp = SubResource( 10 )
-anims/RunDown = SubResource( 3 )
-anims/RunLeft = SubResource( 4 )
-anims/RunRight = SubResource( 5 )
-anims/RunUp = SubResource( 6 )
+[node name="wanderController" parent="." instance=ExtResource( 4 )]
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = ExtResource( 4 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource( 2 )
-parameters/Idle/blend_position = Vector2( 0, 0.069 )
-parameters/Run/blend_position = Vector2( 0, 0.1 )
+[node name="SoftCollision" parent="." instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[editable path="SoftCollision"]
