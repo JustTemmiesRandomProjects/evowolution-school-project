@@ -7,19 +7,12 @@
 [node name="Game" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 6, 6 )
+scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 500, 500 )
+region_rect = Rect2( 0, 0, 1920, 1920 )
 
 [node name="YSort" type="YSort" parent="."]
-
-[node name="Spawner" type="Node2D" parent="YSort"]
-script = ExtResource( 3 )
-
-[node name="Timer" type="Timer" parent="YSort/Spawner"]
-wait_time = 0.05
-autostart = true
 
 [node name="Character" parent="YSort" instance=ExtResource( 2 )]
 
@@ -27,4 +20,25 @@ autostart = true
 scale = Vector2( 0.25, 0.25 )
 current = true
 
-[connection signal="timeout" from="YSort/Spawner/Timer" to="YSort/Spawner" method="_on_Timer_timeout"]
+[node name="Frogs" type="YSort" parent="YSort"]
+
+[node name="Spawner" type="Node2D" parent="YSort/Frogs"]
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="YSort/Frogs/Spawner"]
+wait_time = 0.5
+autostart = true
+
+[node name="Box" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Box"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Box/StaticBody2D"]
+build_mode = 1
+polygon = PoolVector2Array( -1608, -1666, -1608, 1691, 1634, 1704, 1581, 1994, -2261, 2034, -2066, -1747 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Box/StaticBody2D"]
+build_mode = 1
+polygon = PoolVector2Array( 1574, 2168, 1607, -1585, -2214, -1585, -2086, -2002, 2482, -1928, 1957, 2417 )
+
+[connection signal="timeout" from="YSort/Frogs/Spawner/Timer" to="YSort/Frogs/Spawner" method="_on_Timer_timeout"]

@@ -156,7 +156,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
 [sub_resource type="CircleShape2D" id=13]
-radius = 31.7982
+radius = 70.7518
 
 [node name="Character" type="KinematicBody2D"]
 scale = Vector2( 4, 4 )

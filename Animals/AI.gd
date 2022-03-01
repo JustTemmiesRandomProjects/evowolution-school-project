@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
-export var FRICTION = 150
+export var FRICTION = 1
 
 enum {
 	IDLE,
@@ -45,6 +45,11 @@ func _physics_process(delta):
 
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector() * delta * 300
+	
+	if velocity.y <= -5:
+		$Sprite.frame = 1
+	elif velocity.y >= 5:
+		$Sprite.frame = 0
 	velocity = move_and_slide(velocity)
 
 func accelerate_towards_point(point, delta):
