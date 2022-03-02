@@ -10,22 +10,29 @@ enum {
 }
 
 var velocity = Vector2.ZERO
-var knockback = Vector2.ZERO
+
+var fuckCooldown = 5
+
+var size = rand_range(1,2)
+
+
 
 var state = IDLE
 
+var animal = "frog"
+
 onready var sprite = $Sprite
-onready var softCollision = $SoftCollision
+onready var softCollision = $wanderController/SoftCollision
+onready var fuckBox = $wanderController/FuckBox
 onready var wanderController = $wanderController
 
+
 func _ready() -> void:
+	set_scale(Vector2(size,size))
 	randomize()
 
-func _physics_process(delta):
-	knockback = knockback.move_toward(Vector2.ZERO, 100 * delta)# friction * delta
-	knockback = move_and_slide(knockback)
-	
-	
+func _physics_process(delta):	
+
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -39,12 +46,22 @@ func _physics_process(delta):
 				update_wander()
 				
 			accelerate_towards_point(wanderController.target_position, delta)
+			
 
 			if global_position.distance_to(wanderController.target_position) <= MAX_SPEED * delta:
 				update_wander()
 
+
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector() * delta * 300
+	
+	if fuckBox.is_colliding() and fuckCooldown <= 0:
+		Spawner.spawn(get_position(), $Sprite.R, $Sprite.G, $Sprite.B, size)
+		fuckCooldown = 10
+	
+	fuckCooldown -= 1*delta
+	
+
 	
 	if velocity.y <= -5:
 		$Sprite.frame = 1

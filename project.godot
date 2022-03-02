@@ -16,6 +16,10 @@ config/icon="res://assets/beaver.png"
 config/macos_native_icon="res://assets/beaver.png"
 config/windows_native_icon="res://assets/beaver.png"
 
+[autoload]
+
+Spawner="*res://scripts/Spawner.gd"
+
 [display]
 
 window/stretch/mode="viewport"

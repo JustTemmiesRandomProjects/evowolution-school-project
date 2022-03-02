@@ -24,3 +24,4 @@ func start_wander_timer():
 	timer.start(rand_range(1,5))
 	update_target_position()
 
+
