@@ -11,7 +11,7 @@ enum {
 
 var velocity = Vector2.ZERO
 
-var fuckCooldown = 5
+var fuckCooldown = 2
 
 var size = rand_range(1,2)
 
@@ -56,7 +56,15 @@ func _physics_process(delta):
 		velocity += softCollision.get_push_vector() * delta * 300
 	
 	if fuckBox.is_colliding() and fuckCooldown <= 0:
-		Spawner.spawn(get_position(), $Sprite.R, $Sprite.G, $Sprite.B, size)
+		#Spawner.spawn(get_position(), $Sprite.R, $Sprite.G, $Sprite.B, size)
+		#var fucker = fuckBox.get_overlapping_bodies().erase(self)
+		#print(fucker)
+		var fucker = fuckBox.get_overlapping_areas(); fucker = fucker[0].get_parent().get_parent()
+		var sprite = fucker.get_children()[1]
+		print(abs(fucker.size-size))
+		print(abs(abs(sprite.R)-abs($Sprite.R)))
+		print(abs(abs(sprite.G)-abs($Sprite.G)))
+		print(abs(abs(sprite.B)-abs($Sprite.B)))
 		fuckCooldown = 10
 	
 	fuckCooldown -= 1*delta

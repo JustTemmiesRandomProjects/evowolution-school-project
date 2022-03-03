@@ -6,8 +6,8 @@ const frog = preload("res://Animals/Frog.tscn")
 
 #func _on_Timer_timeout() -> void:
 func _process(delta: float) -> void:
-	if get_parent().get_child_count() <= 30:
-		spawn(Vector2(rand_range(-500, 500),rand_range(-500, 500)), 0, 0, 0, 1.5)
+	if get_parent().get_child_count() <= 2:
+		spawn(Vector2(rand_range(-50, 50),rand_range(-50, 50)), 0, 0, 0, 1.5)
 
 func spawn(position, r, g, b, size):
 	var spawnee = frog.instance()
@@ -17,5 +17,5 @@ func spawn(position, r, g, b, size):
 	sprite.R = r + rand_range(-0.1, 0.1)
 	sprite.G = g + rand_range(-0.1, 0.1)
 	sprite.B = b + rand_range(-0.1, 0.1)
-	spawnee.size = size + rand_range(-0.1, 0.1)
+	spawnee.size = size + rand_range(-0.2, 0.2)
 	get_parent().add_child(spawnee)
