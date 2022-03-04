@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Animals/AI.gd" type="Script" id=1]
 [ext_resource path="res://assets/froggie.png" type="Texture" id=2]
@@ -19,11 +19,15 @@ shader_param/B = 0.0
 extents = Vector2( 9.5, 6.5 )
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 3.99999
+radius = 6.66666
 height = 4.00003
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 34.0
+radius = 8.66665
+height = 6.0
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 130.0
 height = 6.0
 
 [node name="Frog" type="KinematicBody2D"]
@@ -64,5 +68,15 @@ position = Vector2( 0, 0.666667 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
+[node name="LureBox" parent="wanderController" instance=ExtResource( 5 )]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="wanderController/LureBox" index="0"]
+position = Vector2( 0, 0.666667 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
 [editable path="wanderController/SoftCollision"]
 [editable path="wanderController/FuckBox"]
+[editable path="wanderController/LureBox"]
