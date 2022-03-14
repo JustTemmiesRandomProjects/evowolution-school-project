@@ -17,7 +17,8 @@ var velocity = Vector2.ZERO
 var fuckCooldown = 4
 var setFuckCooldown = 1
 
-var size = rand_range(1,2)
+var size = 1.5
+var fear_of_player = 5
 
 
 
@@ -74,7 +75,8 @@ func _physics_process(delta):
 				colourAndRand(fuckSprite.R, sprite.R),
 				colourAndRand(fuckSprite.G, sprite.G),
 				colourAndRand(fuckSprite.B, sprite.B),
-				avgAndRand(fucker.size, size), setFuckCooldown+10)
+				avgAndRand(fucker.size, size), setFuckCooldown+10,
+				avgAndRand(fucker.fear_of_player, fear_of_player))
 
 				fuckCooldown = setFuckCooldown
 				
@@ -83,7 +85,7 @@ func _physics_process(delta):
 
 
 	if softCollision.is_colliding() and state != LURED:
-		velocity += softCollision.get_push_vector() * delta * 300
+		velocity += softCollision.get_push_vector() * delta * 300 * (fear_of_player/5)
 		update_wander()
 
 	fuckCooldown -= 1*delta
@@ -118,7 +120,7 @@ func update_wander():
 	state = pick_random_state([IDLE, WANDER])
 	wanderController.start_wander_timer()
 
-func spawn(position, r, g, b, size, cooldown):
+func spawn(position, r, g, b, size, cooldown, fearness):
 	var spawnee = frog.instance()
 	spawnee.position = position
 	var sprite = spawnee.get_children()
@@ -127,5 +129,6 @@ func spawn(position, r, g, b, size, cooldown):
 	sprite.G = g + rand_range(-0.1, 0.1)
 	sprite.B = b + rand_range(-0.1, 0.1)
 	spawnee.size = size + rand_range(-0.15, 0.15)
+	spawnee.fear_of_player = fearness + rand_range(-25, 50)
 	spawnee.fuckCooldown = cooldown
 	get_parent().add_child(spawnee)
