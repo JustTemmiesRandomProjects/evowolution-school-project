@@ -16,6 +16,7 @@ var velocity = Vector2.ZERO
 
 var fuckCooldown = 4
 var setFuckCooldown = 1
+var wannaFuck = false
 
 var size = rand_range(1,2)
 
@@ -58,7 +59,7 @@ func _physics_process(delta):
 		
 		LURED:
 			accelerate_towards_point(get_node("/root/Game/YSort/Character").get_position()+Vector2(512,300), delta)
-			if fuckBox.is_colliding() and fuckCooldown <= 0:
+			if fuckBox.is_colliding() and fuckCooldown <= 0 and wannaFuck:
 		
 				var fucker = fuckBox.get_overlapping_areas(); fucker = fucker[0].get_parent().get_parent()
 				var fuckSprite = fucker.get_children()[1]
@@ -77,6 +78,9 @@ func _physics_process(delta):
 				avgAndRand(fucker.size, size), setFuckCooldown+10)
 
 				fuckCooldown = setFuckCooldown
+				
+				wannaFuck = false
+				$Particles2D.emitting = false
 				
 			if Stats.beAfraid or not lureBox.is_colliding():
 				update_wander()
@@ -129,3 +133,8 @@ func spawn(position, r, g, b, size, cooldown):
 	spawnee.size = size + rand_range(-0.15, 0.15)
 	spawnee.fuckCooldown = cooldown
 	get_parent().add_child(spawnee)
+
+func _on_FuckBox_input_event(viewport, event, shape_idx):
+	if Input.get_action_strength("click") and not wannaFuck:
+		wannaFuck = true
+		$Particles2D.emitting = true
