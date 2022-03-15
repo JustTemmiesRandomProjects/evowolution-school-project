@@ -16,9 +16,15 @@ func _input(event: InputEvent) -> void:
 		hotbar(6)
 	elif Input.get_action_strength("7"):
 		hotbar(7)
+	
+	elif Input.get_action_strength("inventory"):
+		open_inv()
+
+func open_inv():
+	$Panel/Selected.rect_position.x = (9000)
+
 
 func hotbar(pos):
 	$Panel/Selected.rect_position.x = (24+(pos-1)*80)
 	Stats.hotbar = pos
-	print(Stats.hotbar)
 	Stats.beAfraid = true
