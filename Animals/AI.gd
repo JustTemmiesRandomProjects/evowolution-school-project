@@ -7,6 +7,8 @@ export var FRICTION = 150
 
 var frog = load("res://Animals/Frog.tscn")
 
+var on_lead = false
+
 enum {
 	IDLE,
 	WANDER,
@@ -38,7 +40,8 @@ onready var particles = $Particles2D
 
 
 func _ready() -> void:
-	set_scale(Vector2(size,size))
+	$Sprite.set_scale(Vector2(size,size))
+	$Shadow.set_scale(Vector2(size,size))
 	randomize()
 	
 	particles.emitting = false
@@ -46,6 +49,29 @@ func _ready() -> void:
 	$wanderController/FuckBox.monitoring = false
 
 func _physics_process(delta):	
+	if on_lead:
+		$Line2D.show()
+		$Line2D.set_point_position(1, get_node("/root/Game/YSort/Character").global_position - global_position)
+		
+		if (get_node("/root/Game/YSort/Character").global_position - global_position).x > 150 or (get_node("/root/Game/YSort/Character").global_position - global_position).x < -150:
+			velocity += Vector2((get_node("/root/Game/YSort/Character").global_position.x - global_position.x)/10, 0)
+
+		
+		if (get_node("/root/Game/YSort/Character").global_position - global_position).y > 150 or (get_node("/root/Game/YSort/Character").global_position - global_position).y < -150:
+			velocity += Vector2(0,(get_node("/root/Game/YSort/Character").global_position.y - global_position.y)/10)
+#
+#		if velocity.x > 300:
+#			velocity.x = 300
+#		elif velocity.x < -300:
+#			velocity.x = -300
+#
+#		if velocity.y > 300:
+#			velocity.y = 300
+#		elif velocity.y < -300:
+#			velocity.y = -300
+
+
+
 
 	match state:
 		IDLE:
@@ -191,9 +217,14 @@ func spawn(position, r, g, b, size, cooldown, fearness):
 	spawnee.fuckCooldown = cooldown
 	get_parent().add_child(spawnee)
 
+
 func _on_FuckBox_input_event(viewport, event, shape_idx):
 	if Input.get_action_strength("click"):
-		if fuckCooldown <= 0:
+		if Stats.hotbar == 2:
+			on_lead = !not not on_lead
+			$Line2D.hide()
+			
+		elif fuckCooldown <= 0:
 		
 			particles.emitting = true
 			$wanderController/FuckBox.monitorable = true

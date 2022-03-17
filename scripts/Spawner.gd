@@ -4,8 +4,8 @@ onready var timer = $Timer
 
 const frog = preload("res://Animals/Frog.tscn")
 
-#func _on_Timer_timeout() -> void:
-func _process(delta: float) -> void:
+func _on_Timer_timeout() -> void:
+#func _process(delta: float) -> void:
 	if get_parent().get_child_count() <= 10:
 		spawn(Vector2(rand_range(-50, 50),rand_range(-50, 50)), rand_range(-0.12,0.2), rand_range(-0.12,0.2), rand_range(-0.12,0.2), 1.5, 6)
 		#spawn(Vector2(rand_range(-50, 50),rand_range(-50, 50)), 0, 0, 0, 1.5, 6)

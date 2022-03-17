@@ -1,7 +1,7 @@
 extends Node
 
 var beAfraid = true
-var hotbar = 1
+var hotbar = 0
 
 var colour_muation_rate = 1
 var size_mutation_rate = 1

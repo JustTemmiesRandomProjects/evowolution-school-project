@@ -1,27 +1,31 @@
 extends CanvasLayer
 
 func _input(event: InputEvent) -> void:
-	if Input.get_action_strength("1"):
+	if Input.is_action_just_pressed("1"):
 		hotbar(1)
 		Stats.beAfraid = false
-	elif Input.get_action_strength("2"):
+	elif Input.is_action_just_pressed("2"):
 		hotbar(2)
-	elif Input.get_action_strength("3"):
+	elif Input.is_action_just_pressed("3"):
 		hotbar(3)
-	elif Input.get_action_strength("4"):
+	elif Input.is_action_just_pressed("4"):
 		hotbar(4)
-	elif Input.get_action_strength("5"):
+	elif Input.is_action_just_pressed("5"):
 		hotbar(5)
-	elif Input.get_action_strength("6"):
+	elif Input.is_action_just_pressed("6"):
 		hotbar(6)
-	elif Input.get_action_strength("7"):
+	elif Input.is_action_just_pressed("7"):
 		hotbar(7)
 	
-	elif Input.get_action_strength("inventory"):
+	elif Input.is_action_just_pressed("inventory"):
 		open_inv()
 
 func open_inv():
 	$Panel/Selected.rect_position.x = (9000)
+	if $Inventory.is_visible_in_tree():
+		$Inventory.hide()
+	else:
+		$Inventory.show()
 
 
 func hotbar(pos):
