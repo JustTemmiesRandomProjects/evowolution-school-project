@@ -59,16 +59,16 @@ func _physics_process(delta):
 		
 		if (get_node("/root/Game/YSort/Character").global_position - global_position).y > 150 or (get_node("/root/Game/YSort/Character").global_position - global_position).y < -150:
 			velocity += Vector2(0,(get_node("/root/Game/YSort/Character").global_position.y - global_position.y)/10)
-#
-#		if velocity.x > 300:
-#			velocity.x = 300
-#		elif velocity.x < -300:
-#			velocity.x = -300
-#
-#		if velocity.y > 300:
-#			velocity.y = 300
-#		elif velocity.y < -300:
-#			velocity.y = -300
+
+		if velocity.x > 300:
+			velocity.x = 300
+		elif velocity.x < -300:
+			velocity.x = -300
+
+		if velocity.y > 300:
+			velocity.y = 300
+		elif velocity.y < -300:
+			velocity.y = -300
 
 
 
