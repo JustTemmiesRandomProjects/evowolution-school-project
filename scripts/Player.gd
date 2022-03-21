@@ -12,6 +12,11 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
+const topfence = preload("res://VerticalFence.tscn")
+const bottomfence = preload("res://HorizontalFence.tscn")
+const bomb = preload("res://bomb.tscn")
+
+
 func _ready():
 	#randomize()# randomizes the seed for the game, godot uses a set seed for the game by default
 	animationTree.active = true
@@ -39,6 +44,24 @@ func move_state(delta):
 
 	move()
 
+func _input(event: InputEvent) -> void:
+	if Input.get_action_strength("click"):
+		var fence = null
+		if Stats.hotbar == 3:
+			fence = bottomfence.instance()
+		elif Stats.hotbar == 4:
+			fence = topfence.instance()
+		elif Stats.hotbar == 5:
+			var bomba = bomb.instance()
+			bomba.position = get_global_mouse_position()-Vector2(512,300)
+			get_parent().add_child(bomba)
+		if Stats.hotbar == 3 or Stats.hotbar == 4:
+			if $BuildCooldown.is_stopped() and Stats.coins >= 10:
+				fence.position = get_global_mouse_position()-Vector2(512,300)
+				get_parent().add_child(fence)
+				Stats.coins -= 10
+				$BuildCooldown.start()
+		
 
 func move():
 	velocity = move_and_slide(velocity)

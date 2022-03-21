@@ -23,7 +23,6 @@ Stats="*res://scripts/Stats.gd"
 
 [display]
 
-window/vsync/use_vsync=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
