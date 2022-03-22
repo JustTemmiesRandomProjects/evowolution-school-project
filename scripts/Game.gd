@@ -7,6 +7,7 @@ const bomb_display = preload("res://assets/bombsdisplay.png")
 
 func _on_GameTick_timeout() -> void:
 	$CanvasLayer/Label.text = "Coins: " + str(Stats.coins)
+<<<<<<< HEAD
 
 func _process(delta: float) -> void:
 	if Stats.fade_out:
@@ -48,3 +49,5 @@ func _input(event):
 		if Stats.hotbar == 3 or Stats.hotbar == 4 or Stats.hotbar == 5 or Stats.hotbar == 6:
 			$Fence.show()
 			$Fence.position = get_global_mouse_position()-Vector2(512,300)
+=======
+>>>>>>> parent of 6475a395 (beavr)

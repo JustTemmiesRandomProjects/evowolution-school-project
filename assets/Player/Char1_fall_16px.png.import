@@ -13,4 +13,3 @@ dest_files=[ "res://.import/Char1_fall_16px.png-b5da72cd622eb1574352b77d52e0adb8
 
 atlas_file=""
 import_mode=0
-crop_to_region=false
