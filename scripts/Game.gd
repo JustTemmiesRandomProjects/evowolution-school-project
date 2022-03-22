@@ -1,12 +1,10 @@
 extends Node2D
 
-const top_fence = preload("res://assets/top_fence.png")
-const bottom_fence = preload("res://assets/bottom_fence.png")
-const fence_gate = preload("res://assets/fence.png")
-const bomb_display = preload("res://assets/bombsdisplay.png")
+
 
 func _on_GameTick_timeout() -> void:
 	$CanvasLayer/Label.text = "Coins: " + str(Stats.coins)
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 func _process(delta: float) -> void:
@@ -51,3 +49,5 @@ func _input(event):
 			$Fence.position = get_global_mouse_position()-Vector2(512,300)
 =======
 >>>>>>> parent of 6475a395 (beavr)
+=======
+>>>>>>> parent of cbd388d4 (beavr)

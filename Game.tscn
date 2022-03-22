@@ -9,15 +9,19 @@
 [ext_resource path="res://scripts/Game.gd" type="Script" id=7]
 [ext_resource path="res://assets/coin.png" type="Texture" id=8]
 [ext_resource path="res://Ubuntu-Medium.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://HorizontalFence.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/top_fence.png" type="Texture" id=11]
 [ext_resource path="res://assets/bottom_fence.png" type="Texture" id=12]
 [ext_resource path="res://assets/bomba.png" type="Texture" id=13]
+<<<<<<< HEAD
 <<<<<<< HEAD
 [ext_resource path="res://Jojamart.tscn" type="PackedScene" id=14]
 [ext_resource path="res://overworld.wav" type="AudioStream" id=14]
 [ext_resource path="res://assets/fence.png" type="Texture" id=15]
 =======
 >>>>>>> parent of 6475a395 (beavr)
+=======
+>>>>>>> parent of cbd388d4 (beavr)
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.0666667, 0.00784314, 0.0666667, 0.682353 )
@@ -48,17 +52,12 @@ font_data = ExtResource( 9 )
 position = Vector2( 512, 300 )
 script = ExtResource( 7 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-volume_db = -10.488
-autoplay = true
-
 [node name="GameTick" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
 
 [node name="Ground" type="Sprite" parent="."]
-position = Vector2( -2.99997, 4.00002 )
+position = Vector2( 85.9993, -36.9988 )
 scale = Vector2( 3.69688, 2.69062 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -83,8 +82,7 @@ script = ExtResource( 3 )
 wait_time = 0.5
 autostart = true
 
-[node name="Fence" type="Sprite" parent="."]
-modulate = Color( 0.411765, 0.411765, 0.411765, 0.4 )
+[node name="HorizontalFence" parent="YSort" instance=ExtResource( 10 )]
 
 [node name="Box" type="Node2D" parent="."]
 
@@ -422,8 +420,7 @@ custom_styles/panel = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="CanvasLayer/Panel/Slot5"]
 position = Vector2( 30, 30 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 15 )
+texture = ExtResource( 13 )
 
 [node name="Slot6" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 426.0
@@ -431,10 +428,6 @@ margin_top = 10.0
 margin_right = 486.0
 margin_bottom = 70.0
 custom_styles/panel = SubResource( 2 )
-
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/Panel/Slot6"]
-position = Vector2( 30, 30 )
-texture = ExtResource( 13 )
 
 [node name="Slot7" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 506.0
