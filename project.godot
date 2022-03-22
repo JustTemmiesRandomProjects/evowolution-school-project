@@ -104,6 +104,9 @@ inventory={
 
 [layer_names]
 
+2d_physics/layer_19="gate"
+2d_physics/layer_20="fence"
+2d_physics/layer_21="bomb destructible"
 2d_physics/layer_28="raycast for fucking"
 
 [physics]
