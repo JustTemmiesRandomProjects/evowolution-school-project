@@ -3,6 +3,9 @@ extends Node
 var beAfraid = true
 var hotbar = 0
 
+var fade_out = false
+var fade_in = false	
+
 var coins = 99999
 
 var colour_muation_rate = 1

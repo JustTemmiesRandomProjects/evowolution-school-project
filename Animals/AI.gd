@@ -218,8 +218,16 @@ func spawn(position, r, g, b, size, cooldown, fearness):
 	get_parent().add_child(spawnee)
 
 
-func _on_FuckBox_input_event(viewport, event, shape_idx):
-	if Input.get_action_strength("click"):
+func _on_20thTimer_timeout() -> void:
+	update_wander()
+
+
+func _on_InterestedTimer_timeout() -> void:
+	update_wander()
+
+	return
+	if Input.is_action_just_pressed("click"):
+		print("click")
 		if Stats.hotbar == 2:
 			on_lead = !not not on_lead
 			$Line2D.hide()
@@ -233,9 +241,5 @@ func _on_FuckBox_input_event(viewport, event, shape_idx):
 			state = FUCKY
 
 
-func _on_20thTimer_timeout() -> void:
-	update_wander()
-
-
-func _on_InterestedTimer_timeout() -> void:
-	update_wander()
+func _on_MouseClick_input_event(viewport, event, shape_idx):
+	print("huh")

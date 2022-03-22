@@ -34,5 +34,5 @@ func _process(delta: float) -> void:
 	
 	timer += timer*delta*0.3
 	
-	if timer >= 50:
+	if timer >= 40:
 		emit_signal("boom")
