@@ -21,4 +21,6 @@ func _on_Area2D_body_entered(body: Node) -> void:
 
 func _on_JojaTimer_timeout() -> void:
 	for X in $entrance.get_overlapping_bodies():
-		X.position = Vector2(6979,-729)
+		X.position = Vector2(6236,45)
+		Stats.fade_in = true
+		Stats.fade_out = false

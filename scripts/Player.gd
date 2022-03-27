@@ -17,10 +17,6 @@ const bottomfence = preload("res://HorizontalFence.tscn")
 const fencegate = preload("res://HorizontalFenceGATE.tscn")
 const bomb = preload("res://bomb.tscn")
 
-const top_fence = preload("res://assets/top_fence.png")
-const bottom_fence = preload("res://assets/bottom_fence.png")
-const fence_gate = preload("res://assets/fence.png")
-
 
 func _ready():
 	#randomize()# randomizes the seed for the game, godot uses a set seed for the game by default
@@ -60,12 +56,10 @@ func _input(event: InputEvent) -> void:
 			fence = fencegate.instance()
 		elif Stats.hotbar == 6:
 			if Stats.coins >= 30:
+				Stats.coins -= 30
 				var bomba = bomb.instance()
 				bomba.position = get_global_mouse_position()-Vector2(512,300)
 				get_parent().add_child(bomba)
-				Stats.coins -= 30
-				$BuildCooldown.start()
-	
 		if Stats.hotbar == 3 or Stats.hotbar == 4 or Stats.hotbar == 5:
 			if Stats.coins >= 10:
 				fence.position = get_global_mouse_position()-Vector2(512,300)

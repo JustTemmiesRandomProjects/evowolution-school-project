@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/h i m.png" type="Texture" id=1]
 [ext_resource path="res://scripts/InsideJoja.gd" type="Script" id=3]
@@ -6,12 +6,17 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 86.5, 18.5 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 504, 419 )
+
 [node name="InsideJoja" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -560.0
+margin_top = -362.0
 margin_right = 1616.0
-margin_bottom = 944.0
+margin_bottom = 1015.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -38,13 +43,16 @@ polygon = PoolVector2Array( -128, 20, 240, 20, 240, -172, 240, -236, -144, -236,
 position = Vector2( 425.5, 589.5 )
 shape = SubResource( 1 )
 
-[node name="Fade" type="ColorRect" parent="."]
-margin_right = 1632.0
-margin_bottom = 928.0
-color = Color( 0, 0, 0, 1 )
+[node name="entrance" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="entrance"]
+position = Vector2( 494, 409 )
+shape = SubResource( 2 )
 
 [node name="JojaTimerInside" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 1.1
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

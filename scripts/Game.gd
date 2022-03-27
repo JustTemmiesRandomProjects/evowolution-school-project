@@ -12,21 +12,21 @@ func _process(delta: float) -> void:
 	if Stats.fade_out:
 		if $CanvasLayer/Fadeout.color.a < 1:
 			$CanvasLayer/Fadeout.color.a += .01
-		else:
-			Stats.fade_out = false
+		#else:
+		#	Stats.fade_out = false
 	
 	elif Stats.fade_in:
 		if $CanvasLayer/Fadeout.color.a > 0:
 			$CanvasLayer/Fadeout.color.a -= .01
-		else:
-			Stats.fade_in = false
+		#else:
+		#	Stats.fade_in = false
 	
 	else:
 		if $FadeTimer.is_stopped():
 			$FadeTimer.start()
 
 
-func _on_FadeTime_timeout() -> void:
+func _on_FadeTimer_timeout() -> void:
 	if Stats.fade_out or Stats.fade_in:
 		pass
 	else:
@@ -48,3 +48,4 @@ func _input(event):
 		if Stats.hotbar == 3 or Stats.hotbar == 4 or Stats.hotbar == 5 or Stats.hotbar == 6:
 			$Fence.show()
 			$Fence.position = get_global_mouse_position()-Vector2(512,300)
+
