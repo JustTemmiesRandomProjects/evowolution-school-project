@@ -10,19 +10,6 @@ extends Node2D
 func _ready() -> void:
 	Stats.fade_in = true
 
-func _process(delta: float) -> void:
-	if Stats.fade_out:
-		if $Fade.color.a < 1:
-			$Fade.color.a += .01
-		else:
-			Stats.fade_out = false
-	
-	elif Stats.fade_in:
-		if $Fade.color.a > 0:
-			$Fade.color.a -= .01
-		else:
-			Stats.fade_in = false
-
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.name == "Character":
 		Stats.fade_out = true
@@ -32,4 +19,7 @@ func _on_Area2D_body_entered(body: Node) -> void:
 
 
 func _on_JojaTimerInside_timeout():
-	get_tree().change_scene("res://Game.tscn")
+	for X in $entrance.get_overlapping_bodies():
+		X.position = Vector2(404,-450)
+		Stats.fade_in = true
+		Stats.fade_out = false

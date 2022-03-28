@@ -3,8 +3,8 @@ extends Node
 var beAfraid = true
 var hotbar = 0
 
+var fade_in = false
 var fade_out = false
-var fade_in = false	
 
 var coins = 99999
 

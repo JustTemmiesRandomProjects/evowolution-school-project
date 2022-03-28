@@ -104,10 +104,9 @@ inventory={
 
 [layer_names]
 
-2d_physics/layer_17="player and froggies"
-2d_physics/layer_19="gate"
-2d_physics/layer_20="fence"
-2d_physics/layer_21="bomb destructible"
+2d_physics/layer_18="bomb destructible"
+2d_physics/layer_19="fence gate"
+2d_physics/layer_20="frogs and character"
 2d_physics/layer_28="raycast for fucking"
 
 [physics]
