@@ -17,7 +17,7 @@
 [ext_resource path="res://assets/fence.png" type="Texture" id=15]
 [ext_resource path="res://InsideJoja.tscn" type="PackedScene" id=16]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0666667, 0.00784314, 0.0666667, 0.682353 )
 
 [sub_resource type="StyleBoxFlat" id=2]
@@ -27,7 +27,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0666667, 0.00784314, 0.0666667, 0.682353 )
 border_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 25
@@ -35,7 +35,7 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -117,7 +117,7 @@ margin_left = 154.0
 margin_top = 67.0
 margin_right = 858.0
 margin_bottom = 432.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="Row1" type="Panel" parent="CanvasLayer/Inventory"]
 
@@ -366,14 +366,14 @@ margin_left = 214.0
 margin_top = 505.0
 margin_right = 810.0
 margin_bottom = 585.0
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 
 [node name="Selected" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 20000.0
 margin_top = 8.0
 margin_right = 20064.0
 margin_bottom = 72.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 4 )
 
 [node name="Slot1" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 26.0
