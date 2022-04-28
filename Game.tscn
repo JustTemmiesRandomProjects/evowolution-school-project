@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/grass.png" type="Texture" id=1]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/fence.png" type="Texture" id=14]
 [ext_resource path="res://InsideJoja.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Jojamart.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/cursor_open.png" type="Texture" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0666667, 0.00784314, 0.0666667, 0.682353 )
@@ -357,9 +358,9 @@ margin_bottom = 85.0
 custom_styles/panel = SubResource( 2 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-margin_left = 214.0
+margin_left = 134.0
 margin_top = 505.0
-margin_right = 810.0
+margin_right = 890.0
 margin_bottom = 585.0
 custom_styles/panel = SubResource( 3 )
 
@@ -443,6 +444,25 @@ texture = ExtResource( 13 )
 margin_left = 506.0
 margin_top = 10.0
 margin_right = 566.0
+margin_bottom = 70.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="CanvasLayer/Panel/Slot7"]
+position = Vector2( 30, 30 )
+scale = Vector2( 1.8, 1.8 )
+texture = ExtResource( 17 )
+
+[node name="Slot8" type="Panel" parent="CanvasLayer/Panel"]
+margin_left = 586.0
+margin_top = 10.0
+margin_right = 646.0
+margin_bottom = 70.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Slot9" type="Panel" parent="CanvasLayer/Panel"]
+margin_left = 666.0
+margin_top = 10.0
+margin_right = 726.0
 margin_bottom = 70.0
 custom_styles/panel = SubResource( 2 )
 

@@ -223,6 +223,9 @@ func _on_FuckBox_input_event(viewport, event, shape_idx):
 		if Stats.hotbar == 2:
 			on_lead = !not not on_lead
 			$Line2D.hide()
+		
+		elif Stats.hotbar == 7:
+			queue_free()		
 			
 		elif fuckCooldown <= 0:
 		

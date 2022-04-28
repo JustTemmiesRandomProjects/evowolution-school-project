@@ -16,7 +16,10 @@ func _input(event: InputEvent) -> void:
 		hotbar(6)
 	elif Input.is_action_just_pressed("7"):
 		hotbar(7)
-	
+	elif Input.is_action_just_pressed("8"):
+		hotbar(8)
+	elif Input.is_action_just_pressed("9"):
+		hotbar(9)
 	elif Input.is_action_just_pressed("inventory"):
 		open_inv()
 
