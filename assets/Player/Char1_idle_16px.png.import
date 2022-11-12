@@ -14,3 +14,4 @@ dest_files=[ "res://.import/Char1_idle_16px.png-b71cabf60ada222b00c2db0ab764977a
 atlas_file=""
 import_mode=0
 crop_to_region=false
+trim_alpha_border_from_region=true
